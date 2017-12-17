@@ -1,0 +1,14 @@
+<% extend('../../layout') %>
+  <h1>Login</h1>
+  <form action="/auth/login" method="POST">
+    <p>
+      <input type="text" name="username" placeholder="username" />
+    </p>
+    <p>
+      <input type="password" name="password" placeholder="password" />
+    </p>
+    <p>
+      <input type="submit" />
+    </p>
+  </form>
+  <a href="/auth/facebook">Facebook</a>
