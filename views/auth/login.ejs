@@ -1,6 +1,6 @@
-<% extend('../../layout') %>
-  <h1>Register</h1>
-  <form action="/auth/register" method="POST">
+<% extend('../layout') %>
+  <h1>Login</h1>
+  <form action="/auth/login" method="POST">
     <p>
       <input type="text" name="username" placeholder="username" />
     </p>
@@ -8,9 +8,7 @@
       <input type="password" name="password" placeholder="password" />
     </p>
     <p>
-      <input type="text" name="displayName" placeholder="displayName" />
-    </p>
-    <p>
       <input type="submit" />
     </p>
   </form>
+  <a href="/auth/facebook">Facebook</a>

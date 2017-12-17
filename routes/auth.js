@@ -1,12 +1,12 @@
 module.exports = function(passport){
-  var conn = require('../../config/mysql/db')();
+  var conn = require('../config/db')();
   var bkfd2Password = require("pbkdf2-password");
   var hasher = bkfd2Password();
   var route = require('express').Router();
   route.get('/login', function(req, res){
     var sql = "SELECT * FROM topic";
     conn.query(sql, function(err, topics, fields){
-      res.render('./mysql/auth/login', {user: req.user, topics: topics});
+      res.render('./auth/login', {user: req.user, topics: topics});
     });
   });
 
@@ -53,7 +53,7 @@ module.exports = function(passport){
   route.get('/register', function(req, res){
     var sql = "SELECT * FROM topic";
     conn.query(sql, function(err, topics, fields){
-      res.render('./mysql/auth/register', {user: req.user, topics: topics});
+      res.render('./auth/register', {user: req.user, topics: topics});
     });
   });
 

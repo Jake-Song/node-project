@@ -1,5 +1,5 @@
 module.exports = function(){
-  var conn = require('../../config/mysql/db')();
+  var conn = require('../config/db')();
   var route = require('express').Router();
 
   route.get('/add', function(req, res){
@@ -9,7 +9,7 @@ module.exports = function(){
         console.log(err);
         res.status(500).send('Internal Sever Error.');
       } else {
-        res.render('add', {topics: topics, user:req.user});
+        res.render('./topic/add', {topics: topics, user:req.user});
       }
     });
   });
@@ -40,7 +40,7 @@ module.exports = function(){
             console.log(err);
             res.status(500).send('Internal Sever Error.');
           } else {
-            res.render('edit', {topics: topics, topic:topic[0], user:req.user});
+            res.render('./topic/edit', {topics: topics, topic:topic[0], user:req.user});
           }
         });
       } else {
@@ -80,7 +80,7 @@ module.exports = function(){
             console.log('There is no record.');
             res.status(500).send('Internal Sever Error.');
           } else {
-            res.render('delete', {topics: topics, topic:topic[0], user:req.user});
+            res.render('./topic/delete', {topics: topics, topic:topic[0], user:req.user});
           }
         }
       });
@@ -106,11 +106,11 @@ module.exports = function(){
             console.log(err);
             res.status(500).send('Internal Sever Error.');
           } else {
-            res.render('view', {topics: topics, topic:topic[0], user:req.user});
+            res.render('./topic/view', {topics: topics, topic:topic[0], user:req.user});
           }
         });
       } else {
-        res.render('view', {topics: topics, topic: false, user:req.user});
+        res.render('./topic/view', {topics: topics, topic: false, user:req.user});
       }
     });
   });
