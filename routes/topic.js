@@ -91,7 +91,7 @@ module.exports = function(){
     var id = req.params.id;
     var sql = 'DELETE FROM topic WHERE id=?';
     conn.query(sql, [id], function(err, result){
-      res.redirect('/');
+      res.redirect('/topic');
     });
   });
 
@@ -114,5 +114,7 @@ module.exports = function(){
       }
     });
   });
+
   return route;
+  
 }

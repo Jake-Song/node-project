@@ -6,6 +6,7 @@ module.exports = function(){
   var bodyParser = require('body-parser');
 
   app.engine('ejs', require('express-ejs-extend'));
+  app.set('views', './views')
   app.set('view engine', 'ejs');
   app.use(bodyParser.urlencoded( {extended: false} ));
   app.use(express.static('./public'));
